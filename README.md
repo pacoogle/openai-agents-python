@@ -47,9 +47,11 @@ print(result.final_output)
 
 (_If running this, ensure you set the `OPENAI_API_KEY` environment variable_)
 
+(_For Jupyter notebook users, see [hello_world_jupyter.py](examples/basic/hello_world_jupyter.py)_)
+
 ## Handoffs example
 
-```py
+```python
 from agents import Agent, Runner
 import asyncio
 
@@ -116,7 +118,7 @@ When you call `Runner.run()`, we run a loop until we get a final output.
 
 1. We call the LLM, using the model and settings on the agent, and the message history.
 2. The LLM returns a response, which may include tool calls.
-3. If the response has a final output (see below for the more on this), we return it and end the loop.
+3. If the response has a final output (see below for more on this), we return it and end the loop.
 4. If the response has a handoff, we set the agent to the new agent and go back to step 1.
 5. We process the tool calls (if any) and append the tool responses messages. Then we go to step 1.
 
@@ -140,7 +142,7 @@ The Agents SDK is designed to be highly flexible, allowing you to model a wide r
 
 ## Tracing
 
-The Agents SDK automatically traces your agent runs, making it easy to track and debug the behavior of your agents. Tracing is extensible by design, supporting custom spans and a wide variety of external destinations, including [Logfire](https://logfire.pydantic.dev/docs/integrations/llms/openai/#openai-agents), [AgentOps](https://docs.agentops.ai/v1/integrations/agentssdk), and [Braintrust](https://braintrust.dev/docs/guides/traces/integrations#openai-agents-sdk). For more details about how to customize or disable tracing, see [Tracing](http://openai.github.io/openai-agents-python/tracing).
+The Agents SDK automatically traces your agent runs, making it easy to track and debug the behavior of your agents. Tracing is extensible by design, supporting custom spans and a wide variety of external destinations, including [Logfire](https://logfire.pydantic.dev/docs/integrations/llms/openai/#openai-agents), [AgentOps](https://docs.agentops.ai/v1/integrations/agentssdk), [Braintrust](https://braintrust.dev/docs/guides/traces/integrations#openai-agents-sdk), [Scorecard](https://docs.scorecard.io/docs/documentation/features/tracing#openai-agents-sdk-integration), and [Keywords AI](https://docs.keywordsai.co/integration/development-frameworks/openai-agent). For more details about how to customize or disable tracing, see [Tracing](http://openai.github.io/openai-agents-python/tracing).
 
 ## Development (only needed if you need to edit the SDK/examples)
 
